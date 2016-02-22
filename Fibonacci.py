@@ -9,9 +9,10 @@ import timeit
 #function to calculate the Fibonacci numbers with recursion
 def calFib(n):
   if(n == 1 or n == 2):
-    #if 1 or 0, have it return 1
+    #if 1 or 2, have it return 1
     fibr=1
   elif(n == 0):
+    #if 0, return 0
     fibr=0
   else:
     #return Nn-1 + Nn-2
@@ -21,26 +22,27 @@ def calFib(n):
 def fibWithDP(n, fibList):
   fibr=0
   if(n == 1):
-    #if 1 or 0, have it return 1
+    #if 1, have it return 1
     fibr=+1
   elif(n == 0):
+    #if 0, have it return 0
     fibr+=0
   else:
     #return Nn-1 + Nn-2
     if(fibList[n-2]):
+      #use list to calculate next number in sequence
       fibr=fibList[n-2] + fibList[n-1]
     else:
+      #if not in list, calculate it with recursion
       fibr+=(calFib(n-1) + calFib(n-2))
   fibList.append(fibr)
   return fibr
 
-
-
+#Initialize variables, get user input
 divider="##########################################################################"
-#number = input("Please enter the number of fibonacci numbers you want to calculate: ");
-number = 35
 fib=0
 prevResult = 0
+number = input("Please enter the number of Fibonacci numbers you want to calculate: ");
 
 #####################################################################
 #Use for loop for calculation                                       #
